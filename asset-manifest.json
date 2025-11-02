@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/OR_Code/static/css/main.c962b951.css",
+    "main.js": "/OR_Code/static/js/main.9fd66146.js",
+    "index.html": "/OR_Code/index.html",
+    "main.c962b951.css.map": "/OR_Code/static/css/main.c962b951.css.map",
+    "main.9fd66146.js.map": "/OR_Code/static/js/main.9fd66146.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c962b951.css",
+    "static/js/main.9fd66146.js"
+  ]
+}
