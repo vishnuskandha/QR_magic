@@ -3,6 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Explicit dark theme to prevent Samsung/Chrome forced color inversion -->
+    <meta name="color-scheme" content="dark" />
+    <meta name="supported-color-schemes" content="dark" />
+    <meta name="theme-color" content="#000000" />
+    <!-- iOS status bar styling -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Prevent white flash before CSS loads -->
+    <style>
+      html, body, #root { background:#000; height:100%; }
+      body { margin:0; }
+    </style>
     <title>QR Magic</title>
   </head>
   <body>
