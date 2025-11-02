@@ -2,7 +2,7 @@
   "name": "qr-code-generator",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://vishnuskandha.github.io/qr-code-generator",
+  "homepage": "https://vishnuskandha.github.io/OR_Code",
   "description": "A beautiful QR code generator built with React.",
   "main": "src/index.js",
   "scripts": {

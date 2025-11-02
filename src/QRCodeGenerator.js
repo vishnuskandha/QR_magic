@@ -264,12 +264,12 @@ const QRCodeGenerator = () => {
       <div style={{ position: 'relative', zIndex: 10 }}>
         {/* Header with Metallic Paint Effect */}
         <FadeIn duration={1.2}>
-          <div style={{ textAlign: 'center', paddingTop: '3rem', marginBottom: '2rem' }}>
+          <div style={{ textAlign: 'center', paddingTop: 'clamp(1.5rem, 5vw, 3rem)', marginBottom: 'clamp(1rem, 3vw, 2rem)', padding: '0 1rem' }}>
             <ScaleIn delay={0.3} duration={0.8}>
               <div style={{ display: 'inline-block', marginBottom: '1.5rem', position: 'relative' }}>
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg,#8b5cf6,#ec4899)', filter: 'blur(32px)', opacity: 0.5, animation: 'pulse 3s ease-in-out infinite' }}></div>
-                <div style={{ position: 'relative', background: 'linear-gradient(135deg,#8b5cf6,#ec4899)', padding: '1.5rem', borderRadius: '2rem', transform: 'rotate(3deg)', transition: 'transform 0.3s' }}>
-                  <QrCode size={48} color="#fff" style={{ transform: 'rotate(-3deg)' }} />
+                <div style={{ position: 'relative', background: 'linear-gradient(135deg,#8b5cf6,#ec4899)', padding: 'clamp(1rem, 3vw, 1.5rem)', borderRadius: '2rem', transform: 'rotate(3deg)', transition: 'transform 0.3s' }}>
+                  <QrCode size={window.innerWidth < 480 ? 32 : 48} color="#fff" style={{ transform: 'rotate(-3deg)' }} />
                 </div>
               </div>
             </ScaleIn>
@@ -306,10 +306,10 @@ const QRCodeGenerator = () => {
 
         {/* Pixel Card */}
         <FadeIn delay={0.6} duration={1}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem 3rem' }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 clamp(1rem, 3vw, 1.5rem) 3rem' }}>
             <div className="pixel-border" style={{ 
               position: 'relative',
-              borderRadius: '32px',
+              borderRadius: 'clamp(16px, 4vw, 32px)',
               padding: '2px',
               background: 'linear-gradient(45deg, #ec4899, #8b5cf6, #06b6d4, #f59e0b)',
               animation: 'pixel-pulse 3s ease-in-out infinite'
@@ -317,11 +317,11 @@ const QRCodeGenerator = () => {
               <div style={{ 
                 background: 'rgba(20, 20, 40, 0.85)', 
                 backdropFilter: 'blur(20px)',
-                borderRadius: '30px',
-                padding: '2.5rem'
+                borderRadius: 'clamp(14px, 4vw, 30px)',
+                padding: 'clamp(1.5rem, 4vw, 2.5rem)'
               }}>
                 {/* Tabs */}
-                <div className="tabs" style={{ display: 'flex', gap: '0.75rem', marginBottom: '2rem' }}>
+                <div className="tabs" style={{ display: 'flex', gap: '0.75rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
                   {tabs.map(tab => {
                     const Icon = tab.icon;
                     return (
@@ -330,12 +330,13 @@ const QRCodeGenerator = () => {
                         className={`tab-btn${activeTab === tab.id ? ' active' : ''}`}
                         onClick={() => setActiveTab(tab.id)}
                         style={{
-                          flex: 1,
-                          padding: '1rem',
-                          borderRadius: '16px',
+                          flex: '1 1 auto',
+                          minWidth: 'fit-content',
+                          padding: 'clamp(0.75rem, 2vw, 1rem)',
+                          borderRadius: 'clamp(12px, 3vw, 16px)',
                           background: activeTab === tab.id ? 'linear-gradient(90deg, #8b5cf6, #ec4899)' : 'transparent',
                           color: activeTab === tab.id ? '#fff' : '#888',
-                          fontSize: '1.1rem',
+                          fontSize: 'clamp(0.9rem, 2vw, 1.1rem)',
                           fontWeight: 700,
                           border: 'none',
                           cursor: 'pointer',
@@ -347,7 +348,7 @@ const QRCodeGenerator = () => {
                           boxShadow: activeTab === tab.id ? '0 4px 20px rgba(139, 92, 246, 0.4)' : 'none'
                         }}
                       >
-                        <Icon size={20} />
+                        <Icon size={16} />
                         {tab.label}
                       </button>
                     );
@@ -355,7 +356,12 @@ const QRCodeGenerator = () => {
                 </div>
                 
                 {/* Form & QR Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem', alignItems: 'start' }}>
+                <div style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', 
+                  gap: 'clamp(1.5rem, 4vw, 2.5rem)', 
+                  alignItems: 'start' 
+                }}>
                   {/* Input Section */}
                   <FadeIn delay={0.2} direction="left">
                     <div>
@@ -581,17 +587,17 @@ const QRCodeGenerator = () => {
 
         {/* Profile Card Section */}
         <FadeIn delay={0.8} duration={1.2}>
-          <div style={{ maxWidth: '1200px', margin: '4rem auto 3rem', padding: '0 1.5rem' }}>
+          <div style={{ maxWidth: '1200px', margin: '4rem auto 3rem', padding: '0 clamp(1rem, 3vw, 1.5rem)' }}>
             {/* Sticky Header */}
             <div style={{ 
               position: 'sticky', 
-              top: '20px', 
+              top: 'clamp(10px, 2vw, 20px)', 
               zIndex: 100,
               background: 'rgba(0, 0, 0, 0.8)',
               backdropFilter: 'blur(20px)',
-              borderRadius: '20px',
-              padding: '1.5rem 2rem',
-              marginBottom: '3rem',
+              borderRadius: 'clamp(12px, 3vw, 20px)',
+              padding: 'clamp(1rem, 3vw, 1.5rem) clamp(1.25rem, 4vw, 2rem)',
+              marginBottom: 'clamp(2rem, 4vw, 3rem)',
               border: '1px solid rgba(139, 92, 246, 0.3)',
               boxShadow: '0 8px 32px rgba(0, 0, 0, 0.5)'
             }}>
@@ -649,8 +655,8 @@ const QRCodeGenerator = () => {
                 </h3>
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                  gap: '1rem'
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))',
+                  gap: 'clamp(0.75rem, 2vw, 1rem)'
                 }}>
                   <StaggerContainer staggerDelay={0.1}>
                     {[

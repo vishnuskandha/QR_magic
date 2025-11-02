@@ -153,11 +153,144 @@ button:active {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
   .metallic-text {
-    font-size: 3rem !important;
+    font-size: 2.5rem !important;
+    letter-spacing: -1px !important;
+  }
+
+  .subtitle {
+    font-size: 0.9rem !important;
   }
   
   div[style*="gridTemplateColumns"] {
     grid-template-columns: 1fr !important;
   }
+
+  /* Reduce padding on mobile */
+  .pixel-border > div {
+    padding: 1.5rem !important;
+  }
+
+  /* Stack tabs vertically on very small screens */
+  .tabs {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .tab-btn {
+    width: 100% !important;
+  }
+
+  /* QR code section */
+  div[style*="maxWidth: 320px"] {
+    max-width: 100% !important;
+  }
+
+  /* Featured projects grid */
+  div[style*="minmax(200px"] {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Buttons */
+  button, a {
+    font-size: 0.9rem !important;
+    padding: 0.65rem 1.2rem !important;
+  }
+
+  /* Input fields */
+  input, textarea {
+    font-size: 0.9rem !important;
+    padding: 0.65rem 0.85rem !important;
+  }
+
+  /* Sticky header mobile optimization */
+  div[style*="position: sticky"] {
+    padding: 1rem 1.25rem !important;
+    top: 10px !important;
+  }
+
+  /* Social links */
+  div[style*="flexWrap: wrap"] {
+    gap: 0.75rem !important;
+  }
 }
+
+@media (max-width: 480px) {
+  .metallic-text {
+    font-size: 2rem !important;
+  }
+
+  /* Very small screens - single column for projects */
+  div[style*="minmax(200px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce QR icon size */
+  div[style*="QrCode"] svg {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Smaller padding overall */
+  body {
+    padding: 0 !important;
+  }
+
+  div[style*="padding: '0 1.5rem"] {
+    padding: 0 1rem !important;
+  }
+
+  /* Featured projects smaller icons */
+  div[style*="fontSize: '2rem'"] {
+    font-size: 1.75rem !important;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 896px) and (orientation: landscape) {
+  .metallic-text {
+    font-size: 2rem !important;
+  }
+
+  div[style*="paddingTop: '3rem'"] {
+    padding-top: 1.5rem !important;
+  }
+
+  div[style*="marginBottom: '3rem'"] {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+/* Tablet optimization */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .metallic-text {
+    font-size: 3.5rem !important;
+  }
+
+  div[style*="gridTemplateColumns"] {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  button, a {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  input, textarea {
+    min-height: 44px !important;
+  }
+
+  /* Increase tap targets */
+  .tab-btn {
+    padding: 1rem !important;
+  }
+}
+
