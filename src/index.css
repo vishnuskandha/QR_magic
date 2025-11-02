@@ -13,17 +13,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Ensure dark color scheme for UA styling and form controls */
-:root {
-  color-scheme: dark;
-}
-
-/* Ensure root container paints dark to avoid white flashes */
-#root {
-  min-height: 100vh;
-  background: #000;
-}
-
 * {
   box-sizing: border-box;
 }
