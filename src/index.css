@@ -1,0 +1,163 @@
+/*
+  You can use Tailwind CSS for styling as in the original TSX file, or convert these classes to plain CSS if you prefer.
+  If using Tailwind, ensure you have it set up in your project.
+*/
+
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Keyframe Animations */
+@keyframes float-random {
+  0%, 100% { 
+    transform: translate(0, 0) scale(1); 
+  }
+  25% { 
+    transform: translate(30px, -30px) scale(1.1); 
+  }
+  50% { 
+    transform: translate(-20px, 20px) scale(0.9); 
+  }
+  75% { 
+    transform: translate(20px, 30px) scale(1.05); 
+  }
+}
+
+@keyframes shimmer {
+  0% { 
+    background-position: -1000px 0; 
+  }
+  100% { 
+    background-position: 1000px 0; 
+  }
+}
+
+@keyframes pixel-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5); 
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(236, 72, 153, 0.8); 
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes spin {
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg); 
+  }
+}
+
+/* Metallic Paint Text Effect */
+.metallic-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+/* Pixel Border Effect */
+.pixel-border {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+
+.pixel-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: linear-gradient(45deg, #ec4899, #8b5cf6, #06b6d4, #f59e0b);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: pixel-pulse 3s ease-in-out infinite;
+  border-radius: 32px;
+  pointer-events: none;
+}
+
+/* Input & Textarea Styling */
+input, textarea {
+  background: rgba(255,255,255,0.05) !important;
+  color: #fff;
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  outline: none;
+  font-size: 1rem;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: border 0.3s, box-shadow 0.3s, background 0.3s;
+  font-family: inherit;
+}
+
+input:focus, textarea:focus {
+  border: 2px solid #8b5cf6;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.2);
+  background: rgba(255,255,255,0.08) !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Button Styling */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  border-radius: 16px;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(90deg, #8b5cf6, #ec4899);
+  color: #fff;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .metallic-text {
+    font-size: 3rem !important;
+  }
+  
+  div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+}
