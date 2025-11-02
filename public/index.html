@@ -3,9 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="color-scheme" content="dark" />
     <title>QR Magic</title>
+    <style>
+      /* Prevent white flash before CSS loads */
+      html, body {
+        background: #000;
+        color: #fff;
+        margin: 0;
+        min-height: 100%;
+      }
+      #root { min-height: 100vh; }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">Loading…</div>
+    <noscript>
+      <div style="color:#fff;background:#000;min-height:100vh;display:flex;align-items:center;justify-content:center;font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;">
+        Please enable JavaScript to run this app.
+      </div>
+    </noscript>
   </body>
+  
 </html>
