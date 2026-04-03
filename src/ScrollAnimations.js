@@ -36,10 +36,11 @@ export const useScrollReveal = (delay = 0) => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    let timeoutId;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setIsVisible(true), delay);
+          timeoutId = setTimeout(() => setIsVisible(true), delay);
         }
       },
       { threshold: 0.1 }
@@ -51,9 +52,13 @@ export const useScrollReveal = (delay = 0) => {
     }
 
     return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
       if (currentRef) {
         observer.unobserve(currentRef);
       }
+      observer.disconnect();
     };
   }, [delay]);
 
@@ -90,8 +95,12 @@ export const useScrollProgress = () => {
   useEffect(() => {
     const handleScroll = () => {
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+      if (totalScroll <= 0) {
+        setProgress(0);
+        return;
+      }
       const currentProgress = (window.pageYOffset / totalScroll) * 100;
-      setProgress(currentProgress);
+      setProgress(Math.max(0, Math.min(100, currentProgress)));
     };
 
     window.addEventListener('scroll', handleScroll);
