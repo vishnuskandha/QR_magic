@@ -86,8 +86,14 @@ const NoiseTexture = () => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    if (!ctx) return;
+    let frameId;
+
+    const syncCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    syncCanvasSize();
 
     const animate = () => {
       const imageData = ctx.createImageData(canvas.width, canvas.height);
@@ -100,9 +106,17 @@ const NoiseTexture = () => {
         data[i + 3] = 15;
       }
       ctx.putImageData(imageData, 0, 0);
-      requestAnimationFrame(animate);
+      frameId = requestAnimationFrame(animate);
     };
+    window.addEventListener('resize', syncCanvasSize);
     animate();
+
+    return () => {
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+      window.removeEventListener('resize', syncCanvasSize);
+    };
   }, []);
 
   return <canvas ref={canvasRef} style={{ position: 'fixed', inset: 0, opacity: 0.4, pointerEvents: 'none', zIndex: 0 }} />;

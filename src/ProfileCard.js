@@ -165,7 +165,7 @@ const ProfileCardComponent = ({
       if (!card || !wrap || !animationHandlers) return;
 
       const { beta, gamma } = event;
-      if (!beta || !gamma) return;
+      if (beta == null || gamma == null) return;
 
       animationHandlers.updateCardTransform(
         card.clientHeight / 2 + gamma * mobileTiltSensitivity,
