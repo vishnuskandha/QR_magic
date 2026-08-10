@@ -11,11 +11,12 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-  "deploy": "gh-pages -d build",
-  "deploy:qr": "gh-pages -d build -r https://github.com/vishnuskandha/QR_magic.git"
+    "deploy": "gh-pages -d build",
+    "deploy:qr": "gh-pages -d build -r https://github.com/vishnuskandha/QR_magic.git"
   },
   "dependencies": {
     "lucide-react": "^0.263.1",
+    "qrcode.react": "^4.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
