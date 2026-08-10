@@ -1,5 +1,25 @@
 import { useEffect, useRef, useState } from 'react';
 
+// Respect prefers-reduced-motion: when set, scroll-reveal components
+// render instantly (visible, no transform/transition).
+export const useReducedMotion = () => {
+  const [reduced, setReduced] = useState(
+    () =>
+      typeof window !== 'undefined' &&
+      typeof window.matchMedia === 'function' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const onChange = (e) => setReduced(e.matches);
+    mq.addEventListener?.('change', onChange);
+    return () => mq.removeEventListener?.('change', onChange);
+  }, []);
+
+  return reduced;
+};
+
 // Scroll Fade In Hook
 export const useScrollFadeIn = (threshold = 0.1, rootMargin = '0px') => {
   const ref = useRef(null);
@@ -115,6 +135,7 @@ export const useScrollProgress = () => {
 // Fade In Component
 export const FadeIn = ({ children, delay = 0, duration = 0.8, direction = 'up' }) => {
   const [ref, isVisible] = useScrollFadeIn();
+  const reduced = useReducedMotion();
 
   const getTransform = () => {
     if (!isVisible) {
@@ -128,6 +149,10 @@ export const FadeIn = ({ children, delay = 0, duration = 0.8, direction = 'up' }
     }
     return 'translateY(0)';
   };
+
+  if (reduced) {
+    return <div ref={ref}>{children}</div>;
+  }
 
   return (
     <div
@@ -147,6 +172,11 @@ export const FadeIn = ({ children, delay = 0, duration = 0.8, direction = 'up' }
 // Scale In Component
 export const ScaleIn = ({ children, delay = 0, duration = 0.6 }) => {
   const [ref, isVisible] = useScrollFadeIn();
+  const reduced = useReducedMotion();
+
+  if (reduced) {
+    return <div ref={ref}>{children}</div>;
+  }
 
   return (
     <div
