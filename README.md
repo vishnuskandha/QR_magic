@@ -1,5 +1,15 @@
 # QR Magic
 
+
+<!-- README polish: repository metadata badges -->
+<p>
+  <a href="https://github.com/vishnuskandha/QR_magic"><img alt="GitHub stars" src="https://img.shields.io/github/stars/vishnuskandha/QR_magic?style=for-the-badge&logo=github&label=Stars"></a>
+  <a href="https://github.com/vishnuskandha/QR_magic/fork"><img alt="GitHub forks" src="https://img.shields.io/github/forks/vishnuskandha/QR_magic?style=for-the-badge&logo=github&label=Forks"></a>
+  <a href="https://github.com/vishnuskandha/QR_magic/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/vishnuskandha/QR_magic?style=for-the-badge&logo=github&label=Issues"></a>
+  <a href="https://github.com/vishnuskandha/QR_magic/commits"><img alt="Last commit" src="https://img.shields.io/github/last-commit/vishnuskandha/QR_magic?style=for-the-badge&logo=git&label=Updated"></a>
+</p>
+<!-- End README polish -->
+
 A fast, offline-first QR code generator built with React — for URLs, plain
 text, and contact cards (vCard).
 
